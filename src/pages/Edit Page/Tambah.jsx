@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "../../components/Button";
 import { GrGallery } from "react-icons/gr";
 import instance from "../../api/api";
 import { NavLink, useNavigate } from "react-router-dom";

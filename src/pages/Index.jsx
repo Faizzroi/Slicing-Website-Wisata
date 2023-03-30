@@ -6,8 +6,6 @@ import Tambah from './Edit Page/Tambah'
 import Perbarui from './Edit Page/Perbarui'
 import Detail from './Edit Page/Detail'
 import Dashboard from './Dashboard'
-import { BsChevronLeft } from 'react-icons/bs'
-import { HiOutlineChevronLeft, HiOutlineMenuAlt2 } from 'react-icons/hi'
 import Sidebar from '../components/Sidebar'
 
 const Index = () => {

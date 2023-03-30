@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../components/Button";
-import Img from "../../assets/Rectangle 6234.jpg";
-import { GrGallery } from "react-icons/gr";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import instance from "../../api/api";
 import { BsChevronLeft } from "react-icons/bs";
@@ -36,7 +33,6 @@ const Perbarui = () => {
       e.preventDefault();
       let allInput = [nama,email,phone,address,city]
       const empty = allInput.map((a)=> {return (a == '' || a == ' ')}).filter((a)=>a)
-      console.log(empty);
       if (empty != '') {
         return false
       } else {

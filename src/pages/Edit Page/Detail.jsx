@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Img from "../../assets/Rectangle 6234.jpg";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 import { BsChevronLeft } from "react-icons/bs";
-import { CiEdit } from "react-icons/ci";
 import { FaEdit, FaRegEdit } from "react-icons/fa";
 import { NavLink, useParams } from 'react-router-dom';
 import { VscTrash } from "react-icons/vsc";
-import Table from '../Table';
 import instance from '../../api/api';
 
 const Detail = () => {

@@ -14,10 +14,6 @@ const Sidebar = () => {
         return ('inline-block w-full h-auto flex justify-center ' + (isActive ? "text-blue-600" : null))
       }
     
-      const activated2 = ({isActive}) => {
-        return (isActive ? "text-blue-600" : null)
-      }
-      
       const popup = () => {
         Swal.fire({
           title: '<strong>Logout<strong>',
@@ -37,6 +33,7 @@ const Sidebar = () => {
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
+            console.log(window.location.hash);
             Swal.fire('Berhasil Logout!', ' ', 'success').then(()=>
               {
                 localStorage.clear()

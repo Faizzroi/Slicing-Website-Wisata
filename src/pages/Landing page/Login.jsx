@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useStateContext } from "../../../../react/src/context/StateContext";
-import Button from "../../components/Button";
 import CheckBox from "../../components/CheckBox";
-import Input from "../../components/Input";
-import axios from "axios"
 import instance from "../../api/api"
 
 function Login() {
   const navigate = useNavigate()
-  const [email, setEmail] = useState("jimbo@gmail.com")
-  const [password, setPassword] = useState("12345")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [Login, setLogin] = useState('Login')
 
   const handleSubmit = (event) =>
@@ -44,6 +40,9 @@ function Login() {
       .catch((error) => 
       {
         setLogin("Login Failed")
+        setTimeout(() => {
+          setLogin("Login")
+        }, 1300);
         console.log(error);
       });
     }

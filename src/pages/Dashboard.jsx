@@ -1,9 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import Card from '../components/Card'
 import Search from '../components/Search'
-import Swal from 'sweetalert2'
 import { NavLink, Route, Routes, useNavigate } from 'react-router-dom'
-import Navbar from '../components/Navbar'
 import instance from "../api/api"
 
 

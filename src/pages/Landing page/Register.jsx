@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import instance from "../../api/api";
-import Button from "../../components/Button";
-import Input from "../../components/Input";
 
 const Register = () => {
   const container = "w-[31em] h-[44em] shadow-[4px_4px_11px_1px_#00000040] flex flex-col items-center justify-evenly max-md:h-screen"
