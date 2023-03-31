@@ -12,11 +12,14 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
-  const [userToken, setUserToken] = useState('')
+  const [indexElement, setIndexElement] = useState(<Index />)
+
+  const userToken = localStorage.getItem("token")
 
   useEffect(() => {
-    setUserToken(localStorage.getItem("token"))
-  }, [localStorage])
+    console.log(localStorage);
+    {userToken == !undefined || userToken ? setIndexElement(<Index />) : setIndexElement(<Login/>)}
+  }, [ ,userToken])
 
   return (
     <div className="flex justify-center items-start h-full">
@@ -26,8 +29,7 @@ const App = () => {
           <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> : <Navigate to="/home" />} />
           <Route
             path="/*"
-            element={userToken == !undefined || userToken ? <Index /> : <Login/>
-            }
+            element={indexElement}
           />
           {/* <Route path="/*" element={<NotFound/>}/> */}
         </Routes>
