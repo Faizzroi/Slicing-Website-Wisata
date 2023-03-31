@@ -17,13 +17,14 @@ const App = () => {
   const userToken = localStorage.getItem("token")
 
   useEffect(() => {
-    {userToken === undefined || !userToken && setIndexElement(<Login/>)}
+    {userToken === undefined || !userToken ? setIndexElement(<Login/>) : <Index />}
   }, [ ,userToken])
 
   return (
     <div className="flex justify-center items-start h-full">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={ userToken===undefined || !userToken ? <Login/> : indexElement} />
           <Route path="/login" element={ userToken===undefined || !userToken ? <Login/> : <Navigate replace to={"/home"}/>} />
           <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> :  <Navigate replace to={"/home"}/>} />
           <Route
