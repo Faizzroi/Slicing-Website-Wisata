@@ -9,6 +9,8 @@ function Login() {
   const [password, setPassword] = useState("")
   const [Login, setLogin] = useState('Login')
 
+  const userToken = localStorage.getItem("token");
+
   const handleSubmit = (event) =>
     {
       event.preventDefault()
@@ -36,7 +38,6 @@ function Login() {
         localStorage.setItem("token", response.data.token)
         localStorage.setItem("nama", response.data.user.name)
         navigate("/home")
-
       })
       .catch((error) => 
       {
@@ -52,11 +53,10 @@ function Login() {
     }
 
     useEffect(() => {
-      if (location.pathname !== "/login") {
-        navigate("/login")
-        // history.pushState()
+      if (userToken !== (undefined || null)) {
+        navigate("/home")
       }
-    })
+    },[])
 
   return (
     <div className="w-full h-screen flex items-center justify-center">

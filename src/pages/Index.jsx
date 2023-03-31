@@ -23,8 +23,8 @@ const Index = () => {
 
   return (
     <div className='w-full h-full flex flex-col justify-start items-center'>
-        <Sidebar></Sidebar>
-        <Navbar></Navbar>
+        {userToken === undefined || !userToken ? null : <Sidebar></Sidebar>}
+        {userToken === undefined || !userToken ? null : <Navbar></Navbar>}
     <Routes>
         <Route path="/" element={<Dashboard />} />
         {/* <Route path="/login" element={<Dashboard />} /> */}

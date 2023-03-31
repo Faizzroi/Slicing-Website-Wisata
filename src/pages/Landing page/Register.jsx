@@ -11,7 +11,15 @@ const Register = () => {
   const [button, setButton] = useState('Register')
   const [error, setError] = useState(false)
 
+  const userToken = localStorage.getItem("token");
+
   const navigate = useNavigate()
+
+  useEffect(() => {
+    if (userToken !== (undefined || null)) {
+      navigate("/home")
+    }
+  },[])
 
   const handleSubmit = (event) =>
   {

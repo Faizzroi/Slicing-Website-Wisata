@@ -5,6 +5,12 @@ import instance from "../api/api"
 
 
 const Dashboard = () => {
+
+  const userToken = localStorage.getItem("token");
+  if (userToken === undefined || !userToken) {
+    return false
+  }
+
   const navigate = useNavigate()
   const [data, setData] = useState([])
   const [filtered, setFiltered] = useState([])
@@ -54,18 +60,6 @@ const Dashboard = () => {
     // data.filter((object) => {return !(object.name.indexOf('Pantai'))})
   }, [])
 
-  
-  // useEffect(() => {
-  //   const checkToken = () => {
-  //     const userToken = localStorage.getItem("token")
-      
-  //     if (userToken==undefined) {
-  //       navigate("/")
-  //     }
-  //   }
-
-  //   checkToken()
-  // }, [])
 
   if (loadingStatus) {
     return (<div className='flex h-screen justify-center items-center text-center max-md:h-[84vh]'>
@@ -73,8 +67,11 @@ const Dashboard = () => {
     </div>)
   } else { return (
     <div className='w-full h-screen flex flex-col items-center justify-between'>
-      <div className='min-h-[150px] max-lg:w-[92%] w-[86.5%] max-md:min-h-[110px]'>
+      <div className='min-h-[150px] max-lg:w-[92%] max w-[83%] ml-[7em] max-md:min-h-[110px]'>
         <Search data={data} filtered={filtered} setFiltered={setFiltered}></Search>
+        <div className='w-[40%] h-[90%] flex items-end'>
+          <p className='text-[3.25em] font-semibold'>Hi, {localStorage.getItem("nama")}!</p>
+        </div>
       </div>
       <div className='h-max w-full flex justify-center'>
         <div className='w-[83%] mb-20 h-max max-md:w-[92%]'>
