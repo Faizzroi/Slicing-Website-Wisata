@@ -67,10 +67,10 @@ const Dashboard = () => {
     </div>)
   } else { return (
     <div className='w-full h-screen flex flex-col items-center justify-between'>
-      <div className='min-h-[150px] max-lg:w-[78%] max w-[83%] ml-[7em] max-md:min-h-[110px]'>
+      <div className='min-h-[150px] max-lg:w-[78%] max-md:w-[92%] max w-[83%] md:ml-[4em] lg:ml-[7em] max-md:min-h-[110px]'>
         <Search data={data} filtered={filtered} setFiltered={setFiltered}></Search>
-        <div className='w-[40%] h-[90%] flex items-end max-lg:hidden'>
-          <p className='text-[3.25em] font-semibold'>Hi, {localStorage.getItem("nama")}!</p>
+        <div className='w-auto max-lg:mb-20 h-[90%] flex items-end max-md:hidden '>
+          <p className='text-[3.25em] max-lg:text-[2.75em] font-semibold'>Hi, {localStorage.getItem("nama")}!</p>
         </div>
       </div>
       <div className='h-max w-full flex justify-center'>

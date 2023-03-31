@@ -77,7 +77,7 @@ const Table = ({data, setData}) => {
     
     return (
     <div className='min-w-fit w-full h-full py-12 flex flex-col justify-start lg:ml-7 max-w-[80%] max-lg:overflow-scroll overflow-x-visible overflow-y-visible max-lg:justify-start max-lg:min-w-0 max-lg:h-[86%] max-lg:max-w-[86%] ml-auto max-md:max-w-[92%] max-md:py-6'>
-      <div className=''>
+      <div className='max-lg:sticky max-lg:left-0'>
         <p className='text-indigo-400 text-[36px] max-md:text-[40px] font-semibold'>Table Wisata</p>
       </div>
       <div className='overflow-visible h-auto w-max lg:w-full'>
