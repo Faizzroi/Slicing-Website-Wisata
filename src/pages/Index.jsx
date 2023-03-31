@@ -14,12 +14,12 @@ const Index = () => {
 
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   if (userToken === undefined || !userToken) {
-  //     navigate("/login")
-  //   }
+  useEffect(() => {
+    if (userToken === undefined || !userToken) {
+      navigate("/login")
+    }
 
-  // }, [])
+  }, [])
 
   return (
     <div className='w-full h-full flex flex-col justify-start items-center'>
