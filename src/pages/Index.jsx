@@ -12,6 +12,15 @@ const Index = () => {
   const [data, setData] = useState([])
   const userToken = localStorage.getItem("token");
 
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (userToken === undefined || !userToken) {
+      navigate("/login")
+    }
+
+  }, [])
+
   return (
     <div className='w-full h-full flex flex-col justify-start items-center'>
         <Sidebar></Sidebar>

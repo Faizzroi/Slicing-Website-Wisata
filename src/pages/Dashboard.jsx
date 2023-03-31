@@ -11,10 +11,12 @@ const Dashboard = () => {
   const [loadingStatus, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  if (location.pathname == "/") {
-    navigate("/home")
-    // history.pushState()
-  }
+  useEffect(() => {
+    if (location.pathname !== "/home") {
+      navigate("/home")
+    }
+  }, [])
+  
   
   useEffect(() => 
   {
