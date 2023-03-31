@@ -21,12 +21,14 @@ const App = () => {
     {userToken == !undefined || userToken ? setIndexElement(<Index />) : setIndexElement(<Login/>)}
   }, [ ,userToken])
 
+  console.log(indexElement);
+
   return (
     <div className="flex justify-center items-start h-full">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={ userToken===undefined || !userToken ? <Login/> : <Navigate to="/home" />} />
-          <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> : <Navigate to="/home" />} />
+          <Route path="/login" element={ userToken===undefined || !userToken ? <Login/> : indexElement} />
+          <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> : indexElement } />
           <Route
             path="/*"
             element={indexElement}
