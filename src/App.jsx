@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -12,8 +12,11 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
+  const [userToken, setUserToken] = useState('')
 
-  const userToken = localStorage.getItem("token");
+  useEffect(() => {
+    setUserToken(localStorage.getItem("token"))
+  }, [localStorage])
 
   return (
     <div className="flex justify-center items-start h-full">
