@@ -35,7 +35,8 @@ function Login() {
         console.log((response.data));
         localStorage.setItem("token", response.data.token)
         localStorage.setItem("nama", response.data.user.name)
-        window.location.reload()
+        navigate("/")
+
       })
       .catch((error) => 
       {

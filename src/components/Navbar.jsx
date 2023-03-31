@@ -5,7 +5,7 @@ import { IoMdExit } from "react-icons/io";
 import { VscHome, VscOutput, VscSaveAs, VscSignOut, VscAdd } from "react-icons/vsc";
 import { CgAddR, CgNotes } from "react-icons/cg";
 import Swal from 'sweetalert2';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Navbar = () => {
         Swal.fire('Berhasil Logout!', ' ', 'success').then(()=>
           {
             localStorage.clear()
-            window.location.reload()  
+            nav("/login")
           }
         )
       } 

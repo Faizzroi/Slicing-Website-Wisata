@@ -5,7 +5,8 @@ import { HashRouter, Link, NavLink, useLocation } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const Sidebar = () => {
-
+    const nav = useNavigate()
+    
     const [userName, setUserName] = useState(localStorage.getItem("nama"))
     const path = useLocation().pathname
     const currentUser = localStorage.getItem("nama")
@@ -37,7 +38,7 @@ const Sidebar = () => {
             Swal.fire('Berhasil Logout!', ' ', 'success').then(()=>
               {
                 localStorage.clear()
-                window.location.reload()  
+                nav("/login")
               }
             )
           } 
