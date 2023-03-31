@@ -17,7 +17,6 @@ const Dashboard = () => {
     }
   }, [])
   
-  
   useEffect(() => 
   {
     const getData = () =>
