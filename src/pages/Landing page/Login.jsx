@@ -34,7 +34,6 @@ function Login() {
       .then((response) => 
       {
         setLogin("Login Succes!")
-        console.log((response.data));
         localStorage.setItem("token", response.data.token)
         localStorage.setItem("nama", response.data.user.name)
         navigate("/home")

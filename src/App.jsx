@@ -17,7 +17,6 @@ const App = () => {
   const userToken = localStorage.getItem("token")
 
   useEffect(() => {
-    console.log(localStorage);
     {userToken === undefined || !userToken ? setIndexElement(<Login/>) : setIndexElement(<Index />)}
   }, [ ,userToken])
 
