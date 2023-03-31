@@ -95,7 +95,7 @@ const Detail = () => {
             <div className=''>
                 <i className=''><CiLocationOn/></i>
                 <div className='w-[43%] animate-pulse h-[78%] bg-zinc-100 rounded-3xl' hidden={!loadingStatus}></div>
-                <p className='text-[20px]' hidden={loadingStatus}>{data?.address}, {data?.city}</p>
+                <p className='text-[20px]' hidden={loadingStatus || errorStatus}>{data?.address}, {data?.city}</p>
             </div>
             <div className=''>
                 <i className=''><CiMail/></i>

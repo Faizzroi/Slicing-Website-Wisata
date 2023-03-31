@@ -27,7 +27,7 @@ const Tambah = () => {
     const addWisata = (e) =>
     {
       e.preventDefault();
-      setButtonString("Creating in proccess...");  
+      setButtonString("Creating in progress...");  
 
       let data = new FormData();
       data.append('name', nama);
