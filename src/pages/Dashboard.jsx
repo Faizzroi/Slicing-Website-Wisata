@@ -69,14 +69,14 @@ const Dashboard = () => {
     <div className='w-full h-screen flex flex-col items-center justify-between'>
       <div className='min-h-[150px] max-lg:w-[78%] max-md:w-[92%] max w-[83%] md:ml-[4em] lg:ml-[7em] max-md:min-h-[110px]'>
         <Search data={data} filtered={filtered} setFiltered={setFiltered}></Search>
-        <div className='w-auto max-lg:mb-20 h-[90%] flex items-end max-md:hidden '>
-          <p className='text-[3.25em] max-lg:text-[2.75em] font-semibold'>Hi, {localStorage.getItem("nama")}!</p>
+        <div className='w-auto max-lg:w-min max-lg:mb-20 h-[90%] flex items-end max-md:hidden '>
+          <p className='text-[3.25em] max-lg:mb-[0.7rem] max-lg:text-[2.95em] font-semibold max-lg:text-9xl'><span className='max-lg:font-semibold max-lg:text-[0.9em]'>Hi,</span> {localStorage.getItem("nama")}!</p>
         </div>
       </div>
       <div className='h-max w-full flex justify-center'>
         <div className='w-[83%] mb-20 h-max max-md:w-[92%]'>
             {error? <div className='flex justify-center w-full text-[35px]'><p>Loading <span className='text-red-500'>Error!</span></p></div> : null}
-          <div className='grid w-full gap-x-14 justify-items-center md:grid-cols-dashboard md:max-lg:gap-y-14 gap-y-10 ml-7 my-3 max-md:ml-0 md:ml-14'>
+          <div className='grid w-full gap-x-14 justify-items-center md:grid-cols-dashboard md:max-lg:grid-cols-tablet md:max-lg:gap-y-14 md:max-lg:gap-x-0 gap-y-10 ml-7 my-3 max-md:ml-0 md:ml-14'>
             {filtered?.map((items, i) =>
               {
                 return (

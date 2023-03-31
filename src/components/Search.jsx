@@ -54,7 +54,7 @@ const Search = ({data ,filtered, setFiltered}) => {
     
 
   return (
-    <form className='flex float-right w-[31em] h-auto rounded-[28px] overflow-hidden shadow-[0_4px_10px_1px_#00000040] bg-[#F6F6F6] items-center relative top-14 max-md:w-[100%] max-md:float-rigth max-md:top-9'>
+    <form className='flex float-right w-[31em] max-lg:w-[70%] h-auto rounded-[28px] overflow-hidden shadow-[0_4px_10px_1px_#00000040] bg-[#F6F6F6] items-center relative top-14 max-md:w-[100%] max-md:float-rigth max-md:top-9'>
         <label htmlFor="cari" className='py-[10px] px-4 max-md:py-[7px]'>
           <img src={Img} alt="search" className='max-md:max-h-[40px]'/>
         </label>

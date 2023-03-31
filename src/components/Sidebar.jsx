@@ -66,7 +66,7 @@ const Sidebar = () => {
                 </NavLink>}
                 </div>
                 
-                <h1 id='makan' className='text-black font-bold max-md:text-[28px] mr-4'>Hi, {userName}!</h1>
+                <h1 id='makan' className='text-black font-bold max-md:text-[28px] mr-4' hidden={window.location.hash == "#side-bar"} >Hi, {userName}!</h1>
             </div>
             {currentHash == '#side-bar' && (<div className={'z-30 fixed left-0 top-1/2 -translate-y-1/2 h-screen w-screen bg-black opacity-60'} onClick={()=>history.back()}></div>)}
 
