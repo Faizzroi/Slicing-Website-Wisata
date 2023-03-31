@@ -14,14 +14,16 @@ import NotFound from "./pages/NotFound";
 const App = () => {
   const userToken = localStorage.getItem("token")
 
+  console.log(userToken);
+
   return (
     <div className="flex justify-center items-start h-full">
       <BrowserRouter>
         <Routes>
           { userToken===undefined || !userToken && <Route path="/login" element={<Login/>} /> }
-          { userToken== !undefined || userToken && <Route path="/login" element={<Index/>} /> }
+          { userToken !== undefined || userToken && <Route path="/login" element={<Index/>} /> }
           { userToken===undefined || !userToken && <Route path="/register" element={<Register/>} /> }
-          { userToken== !undefined || userToken && <Route path="/register" element={<Index/>} /> }
+          { userToken !== undefined || userToken && <Route path="/register" element={<Index/>} /> }
           <Route
             path="/*"
             element={<Index />}
