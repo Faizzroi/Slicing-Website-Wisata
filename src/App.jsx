@@ -13,26 +13,20 @@ import NotFound from "./pages/NotFound";
 
 const App = () => {
 
-  const [dashboard, setDashboard] = useState(<Navigate replace to="/login" />);
-
   const userToken = localStorage.getItem("token");
-
-  // useEffect(() => 
-  //   {
-  //     setDashboard( userToken==!undefined && <Dashboard />)}, [])
 
   return (
     <div className="flex justify-center items-start h-full">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={ userToken===undefined || !userToken ? <Login/> : <Navigate replace to="/home" />} />
-          <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> : <Navigate replace to="/home" />} />
+          <Route path="/login" element={ userToken===undefined || !userToken ? <Login/> : <Navigate to="/home" />} />
+          <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> : <Navigate to="/home" />} />
           <Route
             path="/*"
-            element={userToken == !undefined || userToken ? <Index /> : <Navigate replace to="/login" />
+            element={userToken == !undefined || userToken ? <Index /> : <Login/>
             }
           />
-          <Route path="/*" element={<NotFound/>}/>
+          {/* <Route path="/*" element={<NotFound/>}/> */}
         </Routes>
       </BrowserRouter>
     </div>

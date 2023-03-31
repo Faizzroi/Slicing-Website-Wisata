@@ -17,16 +17,12 @@ const Index = () => {
         <Sidebar></Sidebar>
         <Navbar></Navbar>
     <Routes>
-        <Route path="/" element={<Navigate replace to="/home" />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/table" element={<Table data={data} setData={setData} />} />
         <Route path="/home" element={<Dashboard />} />
         <Route path="/tambah" element={<Tambah />} />
         <Route path="/perbarui/:id" element={<Perbarui />} />
         <Route path="/detail/:id" element={<Detail data={data} setData={setData} />} />
-        {/* <Route
-            path="/*#side-bar"
-            element={<Index />}
-          /> */}
     </Routes>
     </div>
   )

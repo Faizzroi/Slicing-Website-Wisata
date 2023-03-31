@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import instance from "../../api/api";
 
@@ -61,7 +61,6 @@ const Register = () => {
       }, 1300);
     });
   }
-  
 
   return (
     <div className="flex h-screen items-center">

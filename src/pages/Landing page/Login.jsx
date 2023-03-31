@@ -40,13 +40,22 @@ function Login() {
       .catch((error) => 
       {
         setLogin("Login Failed")
+
         setTimeout(() => {
+          alert(error.message)
           setLogin("Login")
-        }, 1300);
+        }, 800);
+
         console.log(error);
       });
     }
 
+    useEffect(() => {
+      if (location.pathname !== "/login") {
+        navigate("/login")
+        // history.pushState()
+      }
+    })
 
   return (
     <div className="w-full h-screen flex items-center justify-center">

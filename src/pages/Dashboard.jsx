@@ -4,7 +4,6 @@ import { NavLink, Route, Routes, useNavigate } from 'react-router-dom'
 import instance from "../api/api"
 
 
-
 const Dashboard = () => {
   const navigate = useNavigate()
   const [data, setData] = useState([])
@@ -12,6 +11,11 @@ const Dashboard = () => {
   const [loadingStatus, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
+  if (location.pathname == "/") {
+    navigate("/home")
+    // history.pushState()
+  }
+  
   useEffect(() => 
   {
     const getData = () =>
@@ -87,7 +91,7 @@ const Dashboard = () => {
                     </div>
                     <div className='px-5 py-4'>
                         <p className='font-semibold  mb-2'>{items.name}</p>
-                        <p className=''>{items.address}, {items.city}</p>
+                        <p className=''>{items.address}, {items.city} </p>
                         <p className=''>{items.phone}</p>
                     </div>
                   </div>
