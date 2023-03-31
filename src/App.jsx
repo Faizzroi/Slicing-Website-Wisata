@@ -26,7 +26,7 @@ const App = () => {
     <div className="flex justify-center items-start h-full">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={ userToken===undefined || !userToken ? <Login/> : <Register/>} />
+          <Route path="/login" element={ userToken===undefined || !userToken ? <Register/> : <Register/>} />
           <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> : indexElement } />
           <Route
             path="/*"
