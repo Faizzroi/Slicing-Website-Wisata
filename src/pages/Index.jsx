@@ -14,12 +14,12 @@ const Index = () => {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (userToken === undefined || !userToken) {
-      navigate("/login")
-    }
+  // useEffect(() => {
+  //   if (userToken === undefined || !userToken) {
+  //     navigate("/login")
+  //   }
 
-  }, [])
+  // }, [])
 
   return (
     <div className='w-full h-full flex flex-col justify-start items-center'>
@@ -27,7 +27,7 @@ const Index = () => {
         <Navbar></Navbar>
     <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Dashboard />} />
+        {/* <Route path="/login" element={<Dashboard />} /> */}
         <Route path="/table" element={<Table data={data} setData={setData} />} />
         <Route path="/home" element={<Dashboard />} />
         <Route path="/tambah" element={<Tambah />} />

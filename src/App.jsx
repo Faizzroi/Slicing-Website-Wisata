@@ -12,19 +12,23 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
+  const [indexElement, setIndexElement] = useState(<Index />)
+
   const userToken = localStorage.getItem("token")
+
+  useEffect(() => {
+    {userToken === undefined || !userToken && setIndexElement(<Login/>)}
+  }, [ ,userToken])
 
   return (
     <div className="flex justify-center items-start h-full">
       <BrowserRouter>
         <Routes>
-          { (localStorage.getItem("token")===undefined || !localStorage.getItem("token")) ? (<Route path="/login" element={<Login/>} />) : null }
-          { userToken !== undefined && <Route path="/login" element={<Index/>} /> }
-          { userToken===undefined || !userToken && <Route path="/register" element={<Register/>} /> }
-          { userToken !== undefined || userToken && <Route path="/register" element={<Index/>} /> }
+          <Route path="/login" element={ userToken===undefined || !userToken ? <Login/> : <Navigate to="/home" />} />
+          <Route path="/register" element={ userToken===undefined || !userToken ? <Register/> : <Navigate to="/home" />} />
           <Route
             path="/*"
-            element={<Index />}
+            element={indexElement}
           />
           {/* <Route path="/*" element={<NotFound/>}/> */}
         </Routes>
