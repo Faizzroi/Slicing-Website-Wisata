@@ -27,7 +27,7 @@ const Index = () => {
         <Navbar></Navbar>
     <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/login" element={<Dashboard />} />
         <Route path="/table" element={<Table data={data} setData={setData} />} />
         <Route path="/home" element={<Dashboard />} />
         <Route path="/tambah" element={<Tambah />} />
