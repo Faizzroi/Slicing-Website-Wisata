@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { HiOutlineChevronLeft, HiOutlineMenuAlt2 } from 'react-icons/hi'
 import { VscAdd, VscHome, VscOutput, VscSignOut } from 'react-icons/vsc'
-import { HashRouter, Link, NavLink, useLocation } from 'react-router-dom'
+import { HashRouter, Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const Sidebar = () => {
     const nav = useNavigate()
-    
+
     const [userName, setUserName] = useState(localStorage.getItem("nama"))
     const path = useLocation().pathname
     const currentUser = localStorage.getItem("nama")
