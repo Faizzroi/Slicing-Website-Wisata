@@ -18,7 +18,7 @@ const App = () => {
     <div className="flex justify-center items-start h-full">
       <BrowserRouter>
         <Routes>
-          { (localStorage.getItem("token")===undefined || !localStorage.getItem("token")) && <Route path="/login" element={<Login/>} /> }
+          { (localStorage.getItem("token")===undefined || !localStorage.getItem("token")) ? (<Route path="/login" element={<Login/>} />) : null }
           { userToken !== undefined && <Route path="/login" element={<Index/>} /> }
           { userToken===undefined || !userToken && <Route path="/register" element={<Register/>} /> }
           { userToken !== undefined || userToken && <Route path="/register" element={<Index/>} /> }
