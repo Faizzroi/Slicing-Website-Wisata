@@ -40,10 +40,10 @@ const Navbar = () => {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        nav("/login")
         Swal.fire('Berhasil Logout!', ' ', 'success').then(()=>
           {
             localStorage.clear()
+            nav("/login")
           }
         )
       } 
