@@ -14,6 +14,11 @@ const Detail = () => {
 
     const handleDelete = () => {
 
+      let confirmation = confirm(`Hapus "${data.name}" dari daftar wisata?`)
+      if (confirmation == true) {
+        
+      } else {return false}
+
       let config = {
           method: 'post',
           maxBodyLength: Infinity,
@@ -79,8 +84,8 @@ const Detail = () => {
               <div className='w-[45%] animate-pulse h-[40px] bg-zinc-200 rounded-3xl max-md:w-[60%]' hidden={!loadingStatus} ></div>
               <h1 className='text-[40px] font-bold max-md:text-[30px]' hidden={loadingStatus}>{data?.name}</h1>
           </div>
-          <div onClick={handleDelete} className='mt-3 text-[51px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-1 pl-[8px] pt-1 pr-[5px] max-md:hidden max-lg:text-[44px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10'><VscTrash/></div>
-          <NavLink to={`/perbarui/${data?.id}`}><div className='mt-3 text-[46px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-2 pr-1 pl-3 pt-1 max-md:hidden max-lg:text-[39px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10'><FaRegEdit/></div></NavLink>
+          {!errorStatus && <div onClick={handleDelete} className='mt-3 text-[51px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-1 pl-[8px] pt-1 pr-[5px] max-md:hidden max-lg:text-[44px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10'><VscTrash/></div>}
+          {!errorStatus && <NavLink to={`/perbarui/${data?.id}`}><div className='mt-3 text-[46px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-2 pr-1 pl-3 pt-1 max-md:hidden max-lg:text-[39px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10'><FaRegEdit/></div></NavLink>}
         </div>
         <div className={'h-[70%] w-full bg-zinc-200 rounded-3xl overflow-hidden flex justify-center max-md:h-[55%] ' + (loadingStatus ? ' animate-pulse items-center': null)}>
             { loadingStatus ? 

@@ -43,28 +43,33 @@ const Table = ({data, setData}) => {
       getData()
     }, [])
     
-    const handleDelete = (id) => {
+    const handleDelete = (id, nama) => {
 
-        let config = {
-            method: 'post',
-            maxBodyLength: Infinity,
-            url: `/delete/${id}`,
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`
-            },
-            };
-            
-            instance
-            .request(config)
-            .then((response) => 
-            {
-                console.log(response);
-                window.location.reload()
-            })
-            .catch((error) => 
-            {
-                console.log(error);
-            });
+      let confirmation = confirm(`Hapus "${nama}" dari daftar wisata?`)
+      if (confirmation == true) {
+        
+      } else {return false}
+      
+      let config = {
+          method: 'post',
+          maxBodyLength: Infinity,
+          url: `/delete/${id}`,
+          headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+          },
+          };
+          
+          instance
+          .request(config)
+          .then((response) => 
+          {
+              console.log(response);
+              window.location.reload()
+          })
+          .catch((error) => 
+          {
+              console.log(error);
+          });
     }
 
     if (loadingStatus) {
@@ -113,7 +118,7 @@ const Table = ({data, setData}) => {
                               <div className='flex items-center gap-2 justify-center min-w-max px-2'>
                                 <div className='text-[30px] border-2 rounded-md hover:cursor-pointer hover:bg-gray-200' id={"detail-"+(a.id)}><NavLink to={`/detail/${a.id}`}><BsInfo/></NavLink></div>
                                 <div className='text-[30px] border-2 rounded-md hover:cursor-pointer hover:bg-gray-200'><NavLink to={`/perbarui/${a.id}`}><CiEdit/></NavLink></div>
-                                <div className='text-[30px] border-2 rounded-md hover:bg-gray-200 hover:cursor-pointer flex justify-end' onClick={()=> handleDelete(a.id)}><VscTrash className='-mr-[1px] pl-[1px]'/></div>
+                                <div className='text-[30px] border-2 rounded-md hover:bg-gray-200 hover:cursor-pointer flex justify-end' onClick={()=> handleDelete(a.id, a.name)}><VscTrash className='-mr-[1px] pl-[1px]'/></div>
                               </div>
                             </td>
                           </tr> )   
