@@ -77,12 +77,12 @@ const Register = () => {
         <form
           onSubmit={handleSubmit}
           action=""
-          className="flex flex-col items-center justify-center h-[50%] w-[90%] gap-7"
+          className="flex flex-col items-center justify-center h-[50%] w-[90%] gap-7 [&_input]:bg-[#e6f4ff]"
         >        
-          <input type="text" className='w-[100%] h-16 bg-zinc-100 p-5 rounded-[13px]' placeholder="name" value={name} onChange={(e)=> setName(e.target.value)}/>
-          <input type="email" className='w-[100%] h-16 bg-zinc-100 p-5 rounded-[13px]' placeholder="email" value={email} onChange={(e)=> setEmail(e.target.value)}/>
-          <input type="password" className='w-[100%] h-16 bg-zinc-100 p-5 rounded-[13px]' placeholder="password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
-          <input type="password" className='w-[100%] h-16 bg-zinc-100 p-5 rounded-[13px]' placeholder="konfirmasi password" value={password_confirmation} onChange={(e)=> setPassword_confirmation(e.target.value)}/>
+          <input type="text" className='w-[100%] h-16 p-5 rounded-[13px]' placeholder="name" value={name} onChange={(e)=> setName(e.target.value)}/>
+          <input type="email" className='w-[100%] h-16 p-5 rounded-[13px]' placeholder="email" value={email} onChange={(e)=> setEmail(e.target.value)}/>
+          <input type="password" className='w-[100%] h-16 p-5 rounded-[13px]' placeholder="password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
+          <input type="password" className='w-[100%] h-16 p-5 rounded-[13px]' placeholder="konfirmasi password" value={password_confirmation} onChange={(e)=> setPassword_confirmation(e.target.value)}/>
           <button className='bg-indigo-500 rounded-md w-[70%] py-5 font-semibold text-white hover:bg-indigo-600 ' onClick={()=>handleSubmit}>
             {button}
           </button>

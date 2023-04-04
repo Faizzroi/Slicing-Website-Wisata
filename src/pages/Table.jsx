@@ -45,11 +45,14 @@ const Table = ({data, setData}) => {
     
     const handleDelete = (id, nama) => {
 
-      let confirmation = confirm(`Hapus "${nama}" dari daftar wisata?`)
+      let confirmation = confirm(`Hapus "${nama}" dari Daftar Tempat Wisata?`)
       if (confirmation == true) {
-        
-      } else {return false}
-      
+        alert(`"${nama}" akan segera dihapus dari Daftar`)
+      } else {
+        alert("Batal Menghapus")
+        return false
+      }
+
       let config = {
           method: 'post',
           maxBodyLength: Infinity,

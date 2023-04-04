@@ -16,8 +16,11 @@ const Detail = () => {
 
       let confirmation = confirm(`Hapus "${data.name}" dari daftar wisata?`)
       if (confirmation == true) {
-        
-      } else {return false}
+        alert("Tempat wisata akan segera dihapus")
+      } else {
+        alert("Batal menghapus")
+        return false
+      }
 
       let config = {
           method: 'post',
@@ -74,7 +77,9 @@ const Detail = () => {
       getData()
     }, [])
 
-    window.scrollTo(0,0)
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
 
     return (
     <div className='flex flex-col h-screen max-h-max justify-center items-center w-[65%] max-md:justify-start max-md:w-[90%] max-lg:ml-14 max-lg:w-[78%] max-md:m-0'>
@@ -84,8 +89,8 @@ const Detail = () => {
               <div className='w-[45%] animate-pulse h-[40px] bg-zinc-200 rounded-3xl max-md:w-[60%]' hidden={!loadingStatus} ></div>
               <h1 className='text-[40px] font-bold max-md:text-[30px]' hidden={loadingStatus}>{data?.name}</h1>
           </div>
-          {!errorStatus && <div onClick={handleDelete} className='mt-3 text-[51px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-1 pl-[8px] pt-1 pr-[5px] max-md:hidden max-lg:text-[44px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10'><VscTrash/></div>}
-          {!errorStatus && <NavLink to={`/perbarui/${data?.id}`}><div className='mt-3 text-[46px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-2 pr-1 pl-3 pt-1 max-md:hidden max-lg:text-[39px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10'><FaRegEdit/></div></NavLink>}
+          {!errorStatus && <div onClick={handleDelete} className='mt-3 text-[51px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-1 pl-[8px] pt-1 pr-[5px] max-md:hidden max-lg:text-[44px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10 mb-2'><VscTrash/></div>}
+          {!errorStatus && <NavLink to={`/perbarui/${data?.id}`}><div className='mt-3 text-[46px] hover:cursor-pointer rounded-lg border-[3px] border-indigo-500 text-indigo-700 p-2 pr-1 pl-3 pt-1 max-md:hidden max-lg:text-[39px] lg:hover:scale-95 relative lg:after:opacity-0 lg:after:absolute lg:after:inset-0 lg:after:w-full lg:after:bg-black lg:hover:after:opacity-10 mb-2'><FaRegEdit/></div></NavLink>}
         </div>
         <div className={'h-[70%] w-full bg-zinc-200 rounded-3xl overflow-hidden flex justify-center max-md:h-[55%] ' + (loadingStatus ? ' animate-pulse items-center': null)}>
             { loadingStatus ? 
@@ -100,17 +105,17 @@ const Detail = () => {
             <div className=''>
                 <i className=''><CiLocationOn/></i>
                 <div className='w-[43%] animate-pulse h-[78%] bg-zinc-100 rounded-3xl' hidden={!loadingStatus}></div>
-                <p className='text-[20px]' hidden={loadingStatus || errorStatus}>{data?.address}, {data?.city}</p>
+                <p className='text-[1.25em]' hidden={loadingStatus || errorStatus}>{data?.address}, {data?.city}</p>
             </div>
             <div className=''>
                 <i className=''><CiMail/></i>
                 <div className='w-[40%] animate-pulse h-[78%] bg-zinc-100 rounded-3xl' hidden={!loadingStatus}></div>
-                <p className='text-[20px]' hidden={loadingStatus}>{data?.email}</p>
+                <p className='text-[1.25em]' hidden={loadingStatus}>{data?.email}</p>
             </div>
             <div className=''>
                 <i className=''><CiPhone/></i>
                 <div className='w-[19%] animate-pulse h-[78%] bg-zinc-100 rounded-3xl' hidden={!loadingStatus}></div>
-                <p className='text-[20px]' hidden={loadingStatus}>{data?.phone}</p>
+                <p className='text-[1.25em]' hidden={loadingStatus}>{data?.phone}</p>
             </div>
         </div>
     </div>

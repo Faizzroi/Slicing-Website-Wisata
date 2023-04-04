@@ -70,7 +70,7 @@ const Dashboard = () => {
       <div className='min-h-[150px] max-lg:w-[78%] max-md:w-[92%] max w-[83%] md:ml-[4em] lg:ml-[7em] max-md:min-h-[110px]'>
         <Search data={data} filtered={filtered} setFiltered={setFiltered}></Search>
         <div className='w-auto max-lg:w-min max-lg:mb-20 h-[90%] flex items-end max-md:hidden '>
-          <p className='text-[3.25em] max-lg:mb-[0.7rem] max-lg:text-[2.95em] font-semibold max-lg:text-9xl'><span className='max-lg:font-semibold max-lg:text-[0.9em]'>Hi,</span> {localStorage.getItem("nama")}!</p>
+          <p className='text-[3.15em] max-lg:mb-[0.7rem] max-lg:text-[2.95em] font-semibold max-lg:text-9xl'><span className='max-lg:font-semibold max-lg:text-[0.9em]'>Hi,</span> {localStorage.getItem("nama")}!</p>
         </div>
       </div>
       <div className='h-max w-full flex justify-center'>
