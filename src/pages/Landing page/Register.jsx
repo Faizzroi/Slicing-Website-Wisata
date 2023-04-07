@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import instance from "../../api/api";
 
 const Register = () => {
-  const container = "w-[31em] h-[44em] shadow-[4px_4px_11px_1px_#00000040] flex flex-col items-center justify-evenly max-md:h-screen"
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -71,13 +70,13 @@ const Register = () => {
   }
 
   return (
-    <div className="flex h-screen items-center">
-      <div className={container}>
+    <div className="flex h-screen items-center max-md:w-full">
+      <div className={"w-[31em] h-[44em] shadow-[4px_4px_11px_1px_#00000040] flex flex-col items-center justify-evenly max-md:h-screen "}>
         <h1 className="text-[40px] text-blue-500 font-bold">Register</h1>
         <form
           onSubmit={handleSubmit}
           action=""
-          className="flex flex-col items-center justify-center h-[50%] w-[90%] gap-7 [&_input]:bg-[#e6f4ff]"
+          className="flex flex-col items-center justify-center h-[65%] w-[90%] gap-7 [&_input]:bg-[#e6f4ff]"
         >        
           <input type="text" className='w-[100%] h-16 p-5 rounded-[13px]' placeholder="name" value={name} onChange={(e)=> setName(e.target.value)}/>
           <input type="email" className='w-[100%] h-16 p-5 rounded-[13px]' placeholder="email" value={email} onChange={(e)=> setEmail(e.target.value)}/>

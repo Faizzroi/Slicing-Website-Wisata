@@ -8,6 +8,7 @@ const Tambah = () => {
   const navigate = useNavigate();
 
   const [preview, setPreview] = useState(null);
+  const [uploadingProcess, setUploadingProcess] = useState(false)
   const [loadingStatus, setLoading] = useState(true)
 
   const [nama, setNama] = useState('')
@@ -27,6 +28,11 @@ const Tambah = () => {
     const addWisata = (e) =>
     {
       e.preventDefault();
+      console.log(phone);
+      if ((phone || nama || email || address || city || image) == ('' || null || undefined)) {
+        alert("Form tidak boleh kosong!")
+        return false
+      }
       setButtonString("Creating in progress...");  
 
       let data = new FormData();
@@ -85,20 +91,9 @@ const Tambah = () => {
               className="w-[100%]  p-5 rounded-[13px] max-md:h-16"
               placeholder="Nama Tempat Wisata"
               id="namaTempat"
+              onClick={()=>setUploadingProcess(true)}
               onChange={(e) => setNama(e.target.value)}
             />
-            <input type="file" name="" id="inputImg" hidden onChange={fileChangeHandler}/>
-            <label
-              htmlFor="inputImg"
-              tabIndex={0}
-              onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
-              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3 max-lg:flex max-md:max-h-[19em] md:max-lg:min-h-[400px] lg:hidden"
-            > { preview === null ? 
-              <i className="text-[100px] max-md:text-[90px] opacity-70">
-                <GrGallery />
-              </i> : <img className="w-full min-h-full" src={preview === null ? null : preview} alt="preview" /> }
-              {preview === null ?'Tambahkan Gambar' : null}
-            </label> 
             <input
               type="email"
               className="w-[100%]  p-5 rounded-[13px]"
@@ -128,6 +123,18 @@ const Tambah = () => {
               id="alamat"
               onChange={(e) => setAddress(e.target.value)}
             />
+            <input type="file" name="" id="inputImg" hidden onChange={fileChangeHandler}/>
+            <label
+              htmlFor="inputImg"
+              tabIndex={0}
+              onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
+              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3 max-lg:flex max-md:max-h-[19em] md:max-lg:min-h-[400px] lg:hidden cursor-pointer"
+            > { preview === null ? 
+              <i className="text-[100px] max-md:text-[90px] opacity-70">
+                <GrGallery />
+              </i> : <img className="w-full min-h-full" src={preview === null ? null : preview} alt="preview" /> }
+              {preview === null ?'Tambahkan Gambar' : null}
+            </label> 
             <button className='bg-indigo-500 rounded-md px-[8em] py-5 min-w-[100%] text-center font-semibold text-white hover:bg-indigo-600 lg:hidden'>
             {buttonString}
             </button>
@@ -145,7 +152,7 @@ const Tambah = () => {
               htmlFor="inputImg"
               tabIndex={0}
               onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
-              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3"
+              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] cursor-pointer font-light gap-3 active:after:opacity-20 after:bg-black after:opacity-0 active:relative active:after:h-full active:after:w-full active:after:absolute"
             > { preview ===null ? 
               <i className="text-[100px] opacity-70">
                 <GrGallery />

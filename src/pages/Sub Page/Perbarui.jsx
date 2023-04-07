@@ -31,11 +31,11 @@ const Perbarui = () => {
   const addWisata = (e) =>
     {
       e.preventDefault();
-      let allInput = [nama,email,phone,address,city]
-      const empty = allInput.map((a)=> {return (a == '' || a == ' ')}).filter((a)=>a)
-      if (empty != '') {
+      if ((phone || nama || email || address || city || image) == ( '' || null || undefined)) {
+        alert("Form tidak boleh kosong!")
         return false
-      } else {
+      }
+
       setButtonString("Updating. . .");  
 
       let data = new FormData();
@@ -70,7 +70,7 @@ const Perbarui = () => {
         console.log(error);
         setButtonString("Update");
       });
-      }
+      
     }
 
   useEffect(() => 
@@ -153,16 +153,6 @@ const Perbarui = () => {
               value={nama}
               onChange={(e) => setNama(e.target.value)}
             />
-            <input type="file" name="" id="inputImg" hidden onChange={fileChangeHandler}/>
-            <label
-              htmlFor="inputImg"
-              tabIndex={0}
-              onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
-              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3 max-lg:flex max-md:max-h-[19em] md:max-lg:min-h-[400px] lg:hidden"
-            > 
-              <img className="w-full min-h-full object-cover" id="preview" alt="preview" src={image == null ? data.photo : preview}  hidden={loadingStatus}/>
-              <p className="text-[28px] animate-pulse" hidden={!loadingStatus}>Loading . . .</p>
-            </label> 
             <input
               type="email"
               className={"w-[100%] h-[4.5rem]  p-5 rounded-[13px] " + (loadingStatus ? "animate-pulse" : null)}
@@ -188,6 +178,16 @@ const Perbarui = () => {
               id="kota"
               onChange={(e) => setCity(e.target.value)}
             />
+            <input type="file" name="" id="inputImg" hidden onChange={fileChangeHandler}/>
+            <label
+              htmlFor="inputImg"
+              tabIndex={0}
+              onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
+              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3 max-lg:flex max-md:max-h-[19em] md:max-lg:min-h-[400px] lg:hidden"
+            > 
+              <img className="w-full min-h-full object-cover" id="preview" alt="preview" src={image == null ? data.photo : preview}  hidden={loadingStatus}/>
+              <p className="text-[28px] animate-pulse" hidden={!loadingStatus}>Loading . . .</p>
+            </label> 
             <input
               type="text"
               className="w-[100%] min-h-[5.25rem] h-auto  p-5 rounded-[13px] md:max-lg:flex lg:hidden md:hidden"

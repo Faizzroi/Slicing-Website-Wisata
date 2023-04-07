@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import Search from '../components/Search'
+import Search from '../../components/Search'
 import { NavLink, Route, Routes, useNavigate } from 'react-router-dom'
-import instance from "../api/api"
+import instance from "../../api/api"
 
 
 const Dashboard = () => {
 
   const userToken = localStorage.getItem("token");
   if (userToken === undefined || !userToken) {
+    
     return false
   }
 

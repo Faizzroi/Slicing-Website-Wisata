@@ -3,11 +3,13 @@ import { BsInfo } from "react-icons/bs";
 import { CiEdit } from "react-icons/ci";
 import { VscTrash } from "react-icons/vsc";
 import { FiLoader } from "react-icons/fi";
-import instance from '../api/api';
-import { NavLink, Navigate } from 'react-router-dom';
+import instance from '../../api/api';
+import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 
 const Table = ({data, setData}) => {
+    const nav = useNavigate()
     const [loadingStatus, setLoading] = useState(true)
+    const [deleteProcess, setDeleteProcess] = useState(false)
     const [error, setError] = useState(false)
 
     
@@ -53,6 +55,8 @@ const Table = ({data, setData}) => {
         return false
       }
 
+      setDeleteProcess(id)
+
       let config = {
           method: 'post',
           maxBodyLength: Infinity,
@@ -62,17 +66,18 @@ const Table = ({data, setData}) => {
           },
           };
           
-          instance
-          .request(config)
-          .then((response) => 
-          {
-              console.log(response);
-              window.location.reload()
-          })
-          .catch((error) => 
-          {
-              console.log(error);
-          });
+      instance
+      .request(config)
+      .then((response) => 
+      {
+          console.log(response);
+          setDeleteProcess(false)
+          nav("/")
+      })
+      .catch((error) => 
+      {
+          console.log(error);
+      });
     }
 
     if (loadingStatus) {
@@ -84,12 +89,13 @@ const Table = ({data, setData}) => {
     } else {
     
     return (
-    <div className='min-w-fit w-full h-full py-12 flex flex-col justify-start lg:ml-7 max-w-[80%] max-lg:overflow-scroll overflow-x-visible overflow-y-visible max-lg:justify-start max-lg:min-w-0 max-lg:h-[86%] max-lg:max-w-[86%] ml-auto max-md:max-w-[92%] max-md:py-6'>
-      <div className='max-lg:sticky max-lg:left-0'>
+      
+      <div className='min-w-fit w-full h-full py-12 flex flex-col justify-start lg:ml-7 max-w-[80%] max-lg:overflow-x-scroll overflow-x-visible overflow-y-visible max-lg:justify-start max-lg:min-w-0 max-lg:h-[86%] max-lg:max-w-[86%] ml-auto max-md:max-w-[92%] max-md:py-6 ' id='table-container'>
+      <div className='lg:h-[12vh] lg:ml-7 max-lg:sticky max-lg:left-0'>
         <p className='text-indigo-400 text-[36px] max-md:text-[40px] font-semibold'>Table Wisata</p>
       </div>
-      <div className='overflow-visible h-auto w-max lg:w-full'>
-          <div className='w-auto h-auto min-w-full flex overflow-hidden rounded-tl-[35px] rounded-br-[35px] max-lg:min-w-auto max-lg:h-full max-lg:justify-start max-lg:flex mr-14' style={{border:"3px solid #E7EAF0"}}>
+      <div className='overflow-visible h-auto w-max lg:w-full max-lg:mr-10'>
+          <div className='w-auto h-auto min-w-full flex overflow-hidden rounded-t-[35px] max-lg:min-w-auto max-lg:h-full max-lg:justify-start max-lg:flex mr-14' style={{border:"3px solid #E7EAF0"}}>
               <table className='h-max min-w-max border-spacing-y-4 max-lg:max'>
                   <colgroup>
                       <col />
@@ -118,10 +124,12 @@ const Table = ({data, setData}) => {
                             <td className='min-w-fit w-[12%] mr-12'>{a.phone}&nbsp;</td>
                             <td className='min-w-fit w-[12%]'>{a.email}&nbsp;</td>
                             <td className='text-center min-w-max w-max'>
-                              <div className='flex items-center gap-2 justify-center min-w-max px-2'>
+                              <div className={'items-center gap-2 justify-center min-w-max px-2 flex [&_span]:translate-y-1/4 [&_span]:text-[30px]'}>
+                                {deleteProcess == a.id ? <><p>Deleting</p><span className='animate-[bounce_1.2s_-0.4s_infinite_alternate] '>.</span><span className='animate-[bounce_1.2s_-0.2s_infinite_alternate] '>.</span><span className='animate-[bounce_1.2s_infinite_alternate]'>.</span></>  : (<>
                                 <div className='text-[30px] border-2 rounded-md hover:cursor-pointer hover:bg-gray-200' id={"detail-"+(a.id)}><NavLink to={`/detail/${a.id}`}><BsInfo/></NavLink></div>
                                 <div className='text-[30px] border-2 rounded-md hover:cursor-pointer hover:bg-gray-200'><NavLink to={`/perbarui/${a.id}`}><CiEdit/></NavLink></div>
                                 <div className='text-[30px] border-2 rounded-md hover:bg-gray-200 hover:cursor-pointer flex justify-end' onClick={()=> handleDelete(a.id, a.name)}><VscTrash className='-mr-[1px] pl-[1px]'/></div>
+                                </>)}
                               </div>
                             </td>
                           </tr> )   
