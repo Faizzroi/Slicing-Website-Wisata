@@ -136,7 +136,7 @@ const Perbarui = () => {
 
   return (
     <div className="flex flex-col w-full h-full items-center overflow-visible justify-start mb-12 max-md:mb-2">
-      <div className="h-32 flex ml-7 items-center justify-start w-[78%] max-w-[1345px] max-md:w-[94%] max-md:h-auto max-md:mb-5 max-md:mt-4">
+      <div className="h-40 flex ml-7 items-center justify-start w-[78%] max-w-[1345px] max-md:w-[94%] max-md:h-auto max-md:mb-5 max-md:mt-4">
         <NavLink onClick={()=>history.back()}><div className='text-[40px] hover:cursor-pointer mr-5 max-md:hidden'><BsChevronLeft/></div></NavLink>
         <h1 className="text-indigo-400 text-[36px] max-md:text-[30px] font-semibold">
           Perbarui Tempat Wisata
@@ -183,7 +183,7 @@ const Perbarui = () => {
               htmlFor="inputImg"
               tabIndex={0}
               onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
-              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3 max-lg:flex max-md:max-h-[19em] md:max-lg:min-h-[400px] lg:hidden"
+              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3 max-lg:flex max-md:max-h-[19em] md:max-lg:min-h-[400px] lg:hidden active:after:opacity-20 after:bg-black after:opacity-0 active:relative active:after:h-full active:after:w-full active:after:absolute"
             > 
               <img className="w-full min-h-full object-cover" id="preview" alt="preview" src={image == null ? data.photo : preview}  hidden={loadingStatus}/>
               <p className="text-[28px] animate-pulse" hidden={!loadingStatus}>Loading . . .</p>
@@ -214,7 +214,7 @@ const Perbarui = () => {
               htmlFor="inputImg"
               tabIndex={0}
               onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
-              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3">
+              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] font-light gap-3 active:after:opacity-20 after:bg-black after:opacity-0 active:relative active:after:h-full after:active:w-full after:absolute">
                 <img className="w-full min-h-full object-cover" id="preview" alt="preview" src={image == null ? data.photo : preview}  hidden={loadingStatus || errorStatus}/>
                 <p className="text-[28px] animate-pulse" hidden={!loadingStatus}>Loading . . .</p>
                 <p className='animate-pulse duration-300 text-[30px]' hidden={!errorStatus}>Loading <span className='text-red-500'>Error!</span></p>

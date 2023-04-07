@@ -82,15 +82,17 @@ const Dashboard = () => {
               {
                 return (
                 <NavLink to={`/detail/${items.id}`} key={items.id}>
-                  <div className='w-[100%] max-w-[80vh] h-fit shadow-[1px_2px_12px_1px_#00000040] md:hover:shadow-[1px_2px_20px_0px_#00000040] flex flex-col justify-end md:hover:scale-[1.075] duration-200 rounded-lg aspect-[9/8] overflow-hidden md:max-lg:w-[87%] max-md:duration-300 relative after:absolute after:inset-0 after:m-auto after: after:bg-black after:opacity-30 after:duration-500 after:rounded-full after:scale-0 max-md:after:active:scale-150'>
-                    <div className='h-[100%]'>
+                  <div className='w-[100%] max-w-[80vh] h-fit shadow-[1px_2px_12px_1px_#00000040] md:hover:shadow-[1px_2px_20px_0px_#00000040] flex flex-col justify-end md:hover:scale-[1.075] duration-200 rounded-lg aspect-[9/8] overflow-hidden md:max-lg:w-[87%] max-md:duration-300 relative after:absolute after:inset-0 after:m-auto after: after:bg-black after:opacity-30 after:duration-500 after:rounded-full after:scale-0 max-md:after:active:scale-150' style={{backfaceVisibility:"hidden"}}>
+                    <div className='h-[100%] overflow-hidden'>
                       <div className='rounded-t-lg overflow-hidden bg-[#00000095] h-full items-end flex max-md:w-[90vw]'>
                         <img src={items.photo} alt="tempat" className='object-fill h-full w-full max-md:object-fill'/>
                       </div>
                     </div>
-                    <div className='px-5 py-4'>
-                        <p className='font-semibold  mb-2'>{items.name}</p>
-                        <p className=''>{items.address}, {items.city} </p>
+                    <div className='px-5 py-4 h-[36%] max-w-full min-h-max flex flex-col ' style={{backfaceVisibility:"hidden"}}>
+                        <p className='font-semibold mb-2'>{items.name}</p>
+                        <div className='relative overflow-y-auto overflow-x-hidden h-[46%] w-full px-1 -left-1 rounded-lg bg-slate-100 ' style={{backfaceVisibility:"hidden"}}>
+                          <p className='' style={{backfaceVisibility:"hidden"}}>{items.city}, {items.address} </p>
+                        </div>
                         <p className=''>{items.phone}</p>
                     </div>
                   </div>

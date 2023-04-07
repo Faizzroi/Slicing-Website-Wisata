@@ -152,7 +152,7 @@ const Tambah = () => {
               htmlFor="inputImg"
               tabIndex={0}
               onKeyDown={(e) => (e.key == " " || e.key == "Enter") ? document.querySelector("#inputImg").click() : null }
-              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] cursor-pointer font-light gap-3 active:after:opacity-20 after:bg-black after:opacity-0 active:relative active:after:h-full active:after:w-full active:after:absolute"
+              className="bg-[#e6f4ff] w-full h-[25em] rounded-[13px] overflow-hidden flex flex-col items-center justify-center text-[18px] cursor-pointer font-light gap-3 active:after:opacity-20 after:bg-black after:opacity-0 active:relative active:after:h-full active:after:w-full after:absolute"
             > { preview ===null ? 
               <i className="text-[100px] opacity-70">
                 <GrGallery />

@@ -70,7 +70,7 @@ const Sidebar = () => {
             </div>
             {currentHash == '#side-bar' && (<div className={'z-30 fixed left-0 top-1/2 -translate-y-1/2 h-screen w-screen bg-black opacity-60'} onClick={()=>history.back()}></div>)}
 
-            <div id='side-bar' className={'z-50 fixed left-0 top-1/2 -translate-y-1/2 h-[100%] duration-200 w-[65%] bg-white ' + (currentHash == '#side-bar' ? null : '-translate-x-full')}>
+            <div id='side-bar' className={'z-50 fixed left-0 top-1/2 -translate-y-1/2 h-[100%] duration-200 w-[65%] bg-white flex flex-col justify-between ' + (currentHash == '#side-bar' ? null : '-translate-x-full')}>
                 <div className='flex flex-col w-[full] h-[89.8%] gap-3 items-center text-center'>
                     <div className='h-[1%]'></div>
                     <div className='h-auto w-[88%] text-left'>
@@ -102,14 +102,14 @@ const Sidebar = () => {
                       </div>
                     </NavLink>
                 </div>
-                <div className='flex flex-col items-center h-[300px] gap-2'>
+                <div className='flex flex-col items-center h-[18vw] gap-2 bg-red-500'>
                     <hr className='bg-black min-h-[3px] w-[88%] right-0'/>
-                    <div className='text-[10vw] hover:cursor-pointer flex justify-center duration-150 rounded-xl p-2 py-[6px] md:max-lg:pl-[2px] pl-[1px] hover:bg-gray-200 w-[93%]' id='toTable' onClick={popup}>
+                    <div className='text-[10vw] hover:cursor-pointer flex justify-center duration-150 rounded-xl p-2 py-[1vw] md:max-lg:pl-[2px] pl-[1px] hover:bg-gray-200 w-[93%]' id='toTable' onClick={popup}>
                         <VscSignOut className='mr-[7px] w-[10vw]'/>
                         <div className='w-auto flex justify-center items-center'>
                           <p className='text-[5.5vw] right-[50%]'>Logout</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
         </nav>

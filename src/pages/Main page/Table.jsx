@@ -90,13 +90,13 @@ const Table = ({data, setData}) => {
     
     return (
       
-      <div className='min-w-fit w-full h-full py-12 flex flex-col justify-start lg:ml-7 max-w-[80%] max-lg:overflow-x-scroll overflow-x-visible overflow-y-visible max-lg:justify-start max-lg:min-w-0 max-lg:h-[86%] max-lg:max-w-[86%] ml-auto max-md:max-w-[92%] max-md:py-6 ' id='table-container'>
-      <div className='lg:h-[12vh] lg:ml-7 max-lg:sticky max-lg:left-0'>
-        <p className='text-indigo-400 text-[36px] max-md:text-[40px] font-semibold'>Table Wisata</p>
-      </div>
-      <div className='overflow-visible h-auto w-max lg:w-full max-lg:mr-10'>
-          <div className='w-auto h-auto min-w-full flex overflow-hidden rounded-t-[35px] max-lg:min-w-auto max-lg:h-full max-lg:justify-start max-lg:flex mr-14' style={{border:"3px solid #E7EAF0"}}>
-              <table className='h-max min-w-max border-spacing-y-4 max-lg:max'>
+      <div className='min-w-fit h-full py-12 flex flex-col justify-start max-lg:overflow-x-scroll overflow-x-visible overflow-y-visible lg:mr-[2vw] lg:ml-[8em] max-lg:justify-start max-lg:min-w-0 max-lg:h-[100vh] max-lg:ml-[13vw] max-lg:max-w-[85%] max-md:ml-0 max-md:max-w-[100%] max-md:w-screen max-md:h-[90.5vh] max-md:py-6 ' id='table-container'>
+        <div className='lg:h-[12vh] lg:ml-7 max-lg:sticky max-lg:left-3 max-md:ml-[18vw]'>
+          <p className='text-indigo-400 text-[36px] max-md:text-[40px] font-semibold'>Table Wisata</p>
+        </div>
+        <div className='overflow-visible h-auto w-max lg:w-[87vw] max-lg:mr-10 pr-16'>
+          <div className='w-auto h-auto min-w-full flex overflow-hidden rounded-t-[35px] max-lg:min-w-auto max-lg:h-full max-lg:justify-start max-lg:flex mr-14 max-md:ml-[15vw]' style={{border:"3px solid #E7EAF0"}}>
+              <table className='h-max max-lg:min-w-max border-spacing-y-4 max-lg:max '>
                   <colgroup>
                       <col />
                       <col style={{width:"fit-content(20%)"}} />
@@ -120,11 +120,11 @@ const Table = ({data, setData}) => {
                           <tr key={b} style={ (b < (data.length - 1)) ? {borderBlock:"3px solid #E7EAF0"} : {border : 'none'} }>
                             <td className='text-center min-w-fit w-[7%]'>{b+1}</td>
                             <td className='w-max min-w-max'>{a.name}&nbsp;</td>
-                            <td className='min-w-max'>{a.address}, {a.city}&nbsp;</td>
+                            <td className='max-lg:min-w-max w-auto'>{a.address}, {a.city}&nbsp;</td>
                             <td className='min-w-fit w-[12%] mr-12'>{a.phone}&nbsp;</td>
                             <td className='min-w-fit w-[12%]'>{a.email}&nbsp;</td>
-                            <td className='text-center min-w-max w-max'>
-                              <div className={'items-center gap-2 justify-center min-w-max px-2 flex [&_span]:translate-y-1/4 [&_span]:text-[30px]'}>
+                            <td className='text-center min-w-max'>
+                              <div className={'items-center gap-2 justify-center min-w-max px-2 flex [&_span]:translate-y-1/4 [&_span]:text-[30px] h-[inherit]'}>
                                 {deleteProcess == a.id ? <><p>Deleting</p><span className='animate-[bounce_1.2s_-0.4s_infinite_alternate] '>.</span><span className='animate-[bounce_1.2s_-0.2s_infinite_alternate] '>.</span><span className='animate-[bounce_1.2s_infinite_alternate]'>.</span></>  : (<>
                                 <div className='text-[30px] border-2 rounded-md hover:cursor-pointer hover:bg-gray-200' id={"detail-"+(a.id)}><NavLink to={`/detail/${a.id}`}><BsInfo/></NavLink></div>
                                 <div className='text-[30px] border-2 rounded-md hover:cursor-pointer hover:bg-gray-200'><NavLink to={`/perbarui/${a.id}`}><CiEdit/></NavLink></div>
